@@ -1,6 +1,6 @@
 # 🤟 A Two-Stage Sign Language Generation Framework with Self-Supervised Latent Representation Learning
 
-This project aims to  generate sign language keypoints/videos from gloss inputs, facilitating communication a for the deaf and hard-of-hearing community.
+This project aims to  generate sign language keypoints/videos from gloss inputs.
 
 ## 📦 Dataset
 
