@@ -1,0 +1,11 @@
+Brlapi
+cupshelpers
+Keras-Applications
+language-selector
+pyfits
+pygobject
+PyICU
+system-service
+systemd-python
+usb-creator
+xkit

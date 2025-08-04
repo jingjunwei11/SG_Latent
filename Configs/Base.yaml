@@ -1,0 +1,107 @@
+name: "C_Base"
+data:
+    src: "text"    # Source - Either Gloss->Pose or Text->Pose (gloss,text)
+    trg: "skels"    # Target - 3D body co-ordinates (skels)
+    audio: "audio"
+    files: "files"    # Filenames for each sequence
+
+    train: "./Data/How2Sign(English)/train"
+    dev: "./Data/How2Sign(English)/dev"
+    test: "./Data/How2Sign(English)/test"
+    
+    level: "word"
+    lowercase: False
+
+    max_sent_length: 300 # Max Sentence Length
+    percent_tok: True
+    output_train: True
+    train_inf: True
+    scale_data: 1
+    output_videos: True
+    skip_frames: 1   # Skip frames in the data, to reduce the data input size
+    save_bt: True
+    # src_vocab: "./Configs/src_vocab.txt"
+
+training:
+    beam_size: 0
+    alpha: 1.0
+    test_drive_count: True
+    random_seed: 27   # Random seed for initialisation
+    optimizer: "adam"   # Chosen optimiser (adam, ..)
+    learning_rate: 0.001   # Initial model learning rate
+    learning_rate_min: 0.00002 # Learning rate minimum, when training will stop
+    weight_decay: 0.0   # Weight Decay
+    clip_grad_norm: 5.0   # Gradient clipping value
+    batch_size: 128    # Batch Size for training
+    batch_type: "sentence"
+    scheduling: "plateau"   # Scheduling at training time (plateau, ...)
+    patience: 7  # How many epochs of no improvement causes a LR reduction
+    decrease_factor: 0.7  # LR reduction factor, after the # of patience epochs
+    early_stopping_metric: "dtw" # Which metric determines scheduling (DTW, loss, BT...)
+    epochs: 20000  # How many epochs to run for
+    validation_freq: 10 # After how many steps to run a validation on the model
+    logging_freq: 250  # After how many steps to log training progres
+    eval_metric: "dtw"  # Evaluation metric during training (dtw','bt')
+    model_dir: "./Models/English-test" # Where the model shall be stored
+    overwrite: False # Flag to overwrite a previous saved model in the model_dir
+    continue: True  # Flag to continue from a previous saved model in the model_dir
+    shuffle: True  # Flag to shuffle the data during training
+    use_cuda: True  # Flag to use GPU cuda capabilities
+    max_output_length: 300 # Max Output Length
+    print_valid_sents: [0, 3, 6]
+    keep_last_ckpts: 1 # How many previous best/latest checkpoints to keep
+    loss: "MSE"  # Loss function (MSE, L1)
+    disc:
+        optimizer: "adam"   # Chosen optimiser (adam, ..)
+        learning_rate: 0.001  # Initial model learning rate
+        learning_rate_min: 0.0002 # Learning rate minimum, when training will stop
+        weight_decay: 0.0
+    disc_hand:
+        optimizer: "adam"   # Chosen optimiser (adam, ..)
+        learning_rate: 0.001  # Initial model learning rate
+        learning_rate_min: 0.0002 # Learning rate minimum, when training will stop
+        weight_decay: 0.0
+
+model:
+    initializer: "xavier" # Model initialisation (Xavier, ...)
+    init_gain: 1.0
+    bias_initializer: "zeros"  # Bias initialiser (Zeros, ...)
+    embed_initializer: "xavier" # Embedding initialiser (Xavier, ...)
+    embed_init_gain: 1.0
+    tied_embeddings: False
+    default: False
+    tied_softmax: False
+    trg_size: 150 # Size of target skeleton coordinates (150 for Inverse Kinematics body/hands)
+    count_in: True
+    EOS_input: True
+    zero_bos_frame: False
+    just_count_in: False # Flag for Just Counter Data Augmentation
+    gaussian_noise: False # Flag for Gaussian Noise Data Augmentation
+    noise_rate: 5 # Gaussian Noise rate
+    noise_from: "Within_Error"
+    sparse_noise: False
+    sparse_probability: 0.2
+    specific_noise: False
+    shift_frames: 0
+    future_prediction: 10 # Future Prediction Data Augmentation if > 0
+    future_prediction_from: 0
+    encoder:  # Model Encoder
+        type: "transformer"
+        num_layers: 2 # Number of layers
+        num_heads: 8  # Number of Heads
+        embeddings:
+            embedding_dim: 512 # Embedding Dimension
+            dropout: 0.0 # Embedding Dropout
+        hidden_size: 512 # Hidden Size Dimension
+        ff_size: 2048 # Feed-forward dimension (4 x hidden_size)
+        dropout: 0.0 # Encoder Dropout
+    decoder: # Model Decoder
+        type: "transformer"
+        num_layers: 2 # Number of layers
+        num_heads: 8 # Number of Heads
+        embeddings:
+            embedding_dim: 512 # Embedding Dimension
+            dropout: 0.0 # Embedding Dropout
+        hidden_size: 512 # Hidden Size Dimension
+        ff_size: 2048 # Feed-forward dimension (4 x hidden_size)
+        dropout: 0.0 # Decoder Dropout
