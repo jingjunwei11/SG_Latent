@@ -2,16 +2,6 @@
 
 This project aims to  generate sign language keypoints/videos from gloss inputs.
 
-## 📦 Dataset
-
-This project uses the following two datasets:
-
-- **PHOENIX14T**
-- **How2Sign**
-> You can download the datasets we have prepared from the links below:
-> - PHOENIX14T: [Download Link](https://www.phoenix14t.com)
-> - How2Sign: [Download Link](https://www.how2sign.com)
-
 ## 🛠️ Project Structure
 
 ```
@@ -51,7 +41,7 @@ sign-language-generation/
 pip install -r requirements.txt
 ```
 
-### 2. Prepare Data 📁
+### 2. Prepare Data 📦 
 
 Place the dataset under the `Data/` directory as follows:
 
@@ -63,6 +53,8 @@ Data/
 ```
 
 ### 3. Train the Model 🏋️‍♂️
+
+To run, please start __main__.py with the parameters 'CVT' and the config path.
 
 ```bash
 python __main__.py CVT {config_path}
