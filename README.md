@@ -73,5 +73,5 @@ python __main__.py --ckpt {checkpoint_path} CVT_test {config_path}
 
 We provide pre-trained model weights, which you can directly download and use for inference 🔄.
 
-- Pre-trained model link: [Download Link](https://example.com/model)
+- Pre-trained model link: [Download Link](https://drive.google.com/drive/folders/1X5E0Q64WOpyIMKLmKmaYlSf_wFbEFtV0?usp=sharing)
 
