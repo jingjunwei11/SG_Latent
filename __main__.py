@@ -10,7 +10,7 @@ def main():
 
 
     # Choose between Train and Test
-    ap.add_argument("mode", choices=["train", "test", "pre_train","pre_test", "CVT", "CVT_test"],
+    ap.add_argument("mode", choices=["CVT", "CVT_test"],
                     help="train a model or test")
     # Path to Config
     ap.add_argument("config_path", type=str,
