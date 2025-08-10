@@ -28,7 +28,7 @@ First, we need to use [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab
 
 Based on the extracted 2D skeleton data, we will use the inverse kinematics code from the [3DposeEstimator](https://github.com/gopeith/SignLanguageProcessing) project to convert it into 3D data.
 
-After the data preprocessing is complete, you will need to convert the data into a format suitable for training and prepare three `.txt` files that match the configuration parameters `src`, `trg`, and `files`.
+After the data preprocessing is complete, you will need to convert the data into a format suitable for training and prepare three txt files that match the configuration parameters `src`, `trg`, and `files`.
 
 ##### `src` File
 
