@@ -2,37 +2,6 @@
 
 This project aims to  generate sign language keypoints/videos from gloss inputs.
 
-## 🛠️ Project Structure
-
-```
-sign-language-generation/
-├── Configs/             
-├── CVT/                  
-├── Data/                
-├── data_operate/        
-├── German/             
-├── __main__.py        
-├── BiLSTM.py             
-├── builders.py           
-├── constants.py          
-├── data.py           
-├── decoders.py           
-├── discriminator_Data.py 
-├── dtw.py                
-├── embeddings.py         
-├── encoders.py          
-├── helpers.py            
-├── initialization.py   
-├── loss.py             
-├── model.py             
-├── plot_videos.py      
-├── pre_encoders.py       
-├── requirements.txt     
-├── search.py             
-├── transformer_layers.py
-├── tsn.py                
-```
-
 ## 🚀 Installation & Usage
 
 ### 1. Install Dependencies 💻
