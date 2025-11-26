@@ -42,14 +42,7 @@ The `trg` file contains the skeleton data for each frame. The data between each 
 
 The `files` file contains the name of each sequence, with one sequence per line. This file should be in `.files` format.
 
-Place the dataset under the `Data/` directory as follows:
-
-```
-Data/
-├── train/
-├── dev/
-└── test/
-```
+Place the dataset under the `Data/` directory.
 
 #### Notes
 
